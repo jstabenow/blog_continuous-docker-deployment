@@ -30,6 +30,9 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
 
 # Env + Run
 ENV JENKINS_HOME /var/lib/jenkins
+ENV JENKINS_PORT 9090
+ENV JENKINS_SLAVE_PORT 8081
+ENV MESOS_ZK 10.0.100.61:2181,10.0.100.62:2181,10.0.100.63:2181
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
