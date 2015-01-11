@@ -1,9 +1,9 @@
 {
-    "id": "jenkins-master",
+    "id": "jenkins",
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "10.0.100.61:31000/devcluster/jenkins-master-1"
+            "image": "jstabenow/blog-cdd-jenkins"
         },
         "volumes": []
     },
@@ -12,7 +12,7 @@
         "MESOS_ZK": "10.0.100.61:2181,10.0.100.62:2181,10.0.100.63:2181"
     },
     "cpus": 4,
-    "mem": 8192,
+    "mem": 1804,
     "instances": 1,
     "ports": [
         31101,
