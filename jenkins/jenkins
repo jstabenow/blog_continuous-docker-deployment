@@ -1,0 +1,15 @@
+NAME=jenkins
+JAVA=/usr/bin/java
+JAVA_ARGS="-Djava.awt.headless=true"  # Allow graphs etc. to work even when an X server is present
+PIDFILE=/var/run/jenkins/jenkins.pid
+JENKINS_USER=jenkins
+JENKINS_GROUP=jenkins
+JENKINS_WAR=/usr/share/jenkins/jenkins.war
+JENKINS_HOME=/var/lib/jenkins
+RUN_STANDALONE=true
+JENKINS_LOG=/var/log/jenkins/$NAME.log
+MAXOPENFILES=8192
+HTTP_PORT=${PORT0}
+AJP_PORT=-1
+PREFIX=/jenkins
+JENKINS_ARGS="--webroot=/var/cache/jenkins/war --httpPort=$PORT0 --ajp13Port=$AJP_PORT"
