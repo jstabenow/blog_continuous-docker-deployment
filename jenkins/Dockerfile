@@ -9,14 +9,8 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y jenkins && \
     mkdir -p /var/lib/jenkins/plugins && \
-    (cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/credentials.hpi) && \
-    (cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/envinject.hpi) && \
-    (cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/envfile.hpi) && \
-    (cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/build-environment.hpi) && \
-    (cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/analysis-core.hpi) && \
     (cd /var/lib/jenkins/plugins && wget --no-check-certificate https://updates.jenkins-ci.org/download/plugins/mesos/0.5.0/mesos.hpi)
 ADD config.xml /config.xml
-ADD jenkins /etc/default/jenkins
 ADD jenkins.model.JenkinsLocationConfiguration.xml /jenkins.model.JenkinsLocationConfiguration.xml
 
 # Mesos
