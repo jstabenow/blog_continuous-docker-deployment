@@ -1,0 +1,46 @@
+{
+    "id": "docker-registry",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "registry",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 31000,
+                    "protocol": "tcp"
+                }
+            ]
+        },
+        "volumes": []
+    },
+    "cpus": 2,
+    "mem": 2048,
+    "instances": 1,
+    "constraints": [
+        [
+            "hostname",
+            "CLUSTER",
+            "ac1.dev"
+        ]
+    ],
+    "env": {
+        "STORAGE_PATH": "/registry",
+        "SEARCH_BACKEND": "sqlalchemy"
+    },
+    "healthChecks": [
+        {
+            "path": "/",
+            "portIndex": 0,
+            "protocol": "HTTP",
+            "gracePeriodSeconds": 30,
+            "intervalSeconds": 30,
+            "timeoutSeconds": 30,
+            "maxConsecutiveFailures": 3
+        }
+    ],
+    "upgradeStrategy": {
+        "minimumHealthCapacity": 0
+    }
+}
